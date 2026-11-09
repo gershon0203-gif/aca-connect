@@ -1,0 +1,97 @@
+{
+  "name": "aca-connect",
+  "private": true,
+  "version": "1.2.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc -b",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "cap:sync": "cap sync",
+    "android:sync": "npm run build && cap sync android",
+    "android:open": "cap open android",
+    "android:apk": "npm run android:sync && cd android && gradlew.bat assembleDebug",
+    "electron:main": "tsc -p tsconfig.electron.json && node -e \"const fs=require('fs');try{fs.unlinkSync('dist-electron/main.cjs')}catch{};try{fs.unlinkSync('dist-electron/preload.cjs')}catch{};fs.renameSync('dist-electron/main.js','dist-electron/main.cjs');fs.renameSync('dist-electron/preload.js','dist-electron/preload.cjs');\"",
+    "electron:dev": "concurrently \"npm run dev -- --port 5199\" \"wait-on http://localhost:5199 && electron .\"",
+    "electron:build": "npm run build && npm run electron:main && electron-builder",
+    "electron:package": "npm run electron:build",
+    "electron:installer": "npm run electron:build"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/filesystem": "^8.1.5",
+    "@capacitor/keyboard": "^8.0.6",
+    "@capacitor/network": "^8.0.1",
+    "@capacitor/push-notifications": "^8.1.3",
+    "@capacitor/splash-screen": "^8.0.2",
+    "@capacitor/status-bar": "^8.0.4",
+    "@supabase/supabase-js": "^2.118.0",
+    "electron-updater": "^6.8.11",
+    "lucide-react": "^1.57.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.5.3",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.7",
+    "electron": "^45.2.3",
+    "electron-builder": "^26.18.0",
+    "oxlint": "^1.81.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0",
+    "vite-plugin-pwa": "^2.0.0",
+    "wait-on": "^9.5.1",
+    "workbox-build": "^7.4.1",
+    "workbox-window": "^7.4.1"
+  },
+  "main": "dist-electron/main.cjs",
+  "build": {
+    "appId": "org.acapozhichalur.connect",
+    "productName": "ACA Connect",
+    "copyright": "Copyright © 2026 ACA Pozhichalur Ministries",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "build/**/*",
+      "assets/icon.ico"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "gershon0203-gif",
+      "repo": "aca-connect",
+      "private": false
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ACA Connect",
+      "deleteAppDataOnUninstall": false,
+      "include": "build/installer.nsh",
+      "differentialPackage": true
+    }
+  }
+}

@@ -1,0 +1,3 @@
+# SPA fallback: serve the app shell for any path so deep links and refreshes
+# resolve on the client router. (Netlify / Cloudflare Pages format.)
+/*    /index.html   200

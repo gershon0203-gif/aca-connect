@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "369729733366",
+    "project_id": "aca-connect-b254d",
+    "storage_bucket": "aca-connect-b254d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369729733366:android:ea3770f9df868310ee22d7",
+        "android_client_info": {
+          "package_name": "org.acapozhichalur.connect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQzEh64QteG2LleFA83Hunmz1kG4FKU3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

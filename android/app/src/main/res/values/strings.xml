@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ACA Connect Pozhichalur</string>
+    <string name="title_activity_main">ACA Connect Pozhichalur</string>
+    <string name="package_name">org.acapozhichalur.connect</string>
+    <string name="custom_url_scheme">org.acapozhichalur.connect</string>
+</resources>

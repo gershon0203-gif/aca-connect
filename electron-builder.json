@@ -1,0 +1,26 @@
+{
+  "appId": "org.acapozhichalur.connect",
+  "productName": "ACA Connect",
+  "copyright": "Copyright © 2026 ACA Pozhichalur Ministries",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "dist-electron/**/*",
+    "build/**/*"
+  ],
+  "target": "nsis",
+  "arch": ["x64"],
+  "icon": "assets/icon.ico",
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "perMachine": false,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "ACA Connect",
+    "deleteAppDataOnUninstall": false,
+    "customNsis": "build/installer.nsh"
+  }
+}

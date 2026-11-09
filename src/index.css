@@ -1,0 +1,134 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ */
+/*  ACA Connect — Design tokens                                        */
+/*  Warm white canvas · Deep navy structure · Subtle gold accents      */
+/* ------------------------------------------------------------------ */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia,
+    serif;
+
+  /* Warm white / paper canvas */
+  --color-cream-50: #fefdfb;
+  --color-cream-100: #faf7f2;
+  --color-cream-200: #f4efe6;
+  --color-cream-300: #e9e1d3;
+
+  /* Deep navy — primary structure */
+  --color-navy-50: #f2f5f9;
+  --color-navy-100: #e2e8f1;
+  --color-navy-200: #c6d1e2;
+  --color-navy-300: #9aadc9;
+  --color-navy-400: #6882a8;
+  --color-navy-500: #47638c;
+  --color-navy-600: #354d72;
+  --color-navy-700: #2b3e5c;
+  --color-navy-800: #1d2c43;
+  --color-navy-900: #142033;
+  --color-navy-950: #0d1626;
+
+  /* Subtle gold accent */
+  --color-gold-50: #fbf8ee;
+  --color-gold-100: #f6efd7;
+  --color-gold-200: #ecdcac;
+  --color-gold-300: #e0c477;
+  --color-gold-400: #d6ac4c;
+  --color-gold-500: #c8962f;
+  --color-gold-600: #a8791f;
+  --color-gold-700: #865d1c;
+  --color-gold-800: #6d4a1d;
+  --color-gold-900: #593d1c;
+
+  --radius-xl: 0.875rem;
+  --radius-2xl: 1.125rem;
+
+  --shadow-soft: 0 1px 2px rgba(13, 22, 38, 0.04),
+    0 8px 24px -12px rgba(13, 22, 38, 0.14);
+  --shadow-lifted: 0 2px 4px rgba(13, 22, 38, 0.05),
+    0 16px 40px -16px rgba(13, 22, 38, 0.22);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-cream-300);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-cream-100);
+    color: var(--color-navy-900);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-500);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-navy-200) transparent;
+  }
+}
+
+/* Calm, purposeful entrance — respects reduced-motion preferences */
+@keyframes aca-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aca-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-up {
+  animation: aca-fade-up 0.28s ease-out both;
+}
+
+.animate-fade-in {
+  animation: aca-fade-in 0.2s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

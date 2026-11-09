@@ -1,0 +1,56 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Supabase CLI local state
+supabase/.temp
+supabase/.branches
+
+# Capacitor native platforms
+# The Android project is committed: it holds app-specific configuration
+# (app id, permissions, icons, splash, signing) that a regenerated folder
+# would lose. iOS is ignored until that platform is added.
+ios
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+.vercel
+.env*
+
+# Build artifacts (too large for GitHub, attached to releases instead)
+release/**/*.exe
+release/**/*.blockmap
+release/**/*.apk
+release/**/*.idsig
+release/win-unpacked/
+release/web/
+release/windows/
+
+# Node modules and dist
+node_modules
+dist
+dist-electron
